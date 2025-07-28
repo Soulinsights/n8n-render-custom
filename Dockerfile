@@ -1,6 +1,10 @@
 FROM n8nio/n8n:latest
 
-COPY start.sh /start.sh
-RUN chmod +x /start.sh
+# Kopiere das Startscript in das Home-Verzeichnis
+COPY start.sh /home/node/start.sh
 
-CMD ["/start.sh"]
+# Setze das Script als ausführbar (jetzt erlaubt)
+RUN chmod +x /home/node/start.sh
+
+# Setze das Script als Startbefehl
+CMD ["/home/node/start.sh"]
