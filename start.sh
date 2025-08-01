@@ -1,3 +1,5 @@
 #!/bin/sh
-export $(cat /etc/secrets/n8n | xargs)
+set -a
+. /etc/secrets/n8n
+set +a
 n8n
